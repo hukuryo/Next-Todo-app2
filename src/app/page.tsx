@@ -1,13 +1,19 @@
 "use client";
 import Image from 'next/image'
-import React, { MouseEventHandler, useCallback, useState } from 'react';
+import React, { MouseEventHandler, useCallback, useRef, useState } from 'react';
 
 
 export default function Home() {
+  const textRef = useRef<HTMLInputElement>(null)
   const [count, setCount] = useState<number>(0);
   const countUp: MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     setCount((count) => count + 1);
   }, [])
+
+  const [text, setText] = useState<string>('')
+  
+
+  console.log('レンダリング')
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -16,6 +22,8 @@ export default function Home() {
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
+        <input ref={textRef} type="text" />
+        <button onClick={() => alert(textRef.current?.value)}>値の確認</button>
         <p>{count}</p>
         <button className='bg-gradient-to-b' onClick={countUp}>countUp</button>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
