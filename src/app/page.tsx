@@ -1,13 +1,16 @@
 "use client";
 import React, { MouseEventHandler, useCallback, useRef, useState } from 'react';
-import Link from "../app/components/link";
-import Title from "../app/components/Title";
+import Form from "../app/components/Form";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Title title="index" />
-      <Link/>
+    <main className="min-h-screen items-center justify-between p-24">
+      <Form/>
+      <div className=''>
+        <ul>
+          <li>test</li>
+        </ul>
+      </div>
   </main>
   )
 }
