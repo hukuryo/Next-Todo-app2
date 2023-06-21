@@ -18,7 +18,7 @@ export default function Form() {
                     <button className="bg-indigo-600 text-white px-4 py-2 rounded-md">追加する</button>
                 </form>
             </div>
-            <CompleteList/>
+            <CompleteList textList={todoText}/>
         </div>
     )
 }
