@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import CompleteList from "../components/CompleteLists";
 
+interface Todo {
+    task: string;
+    isCompleted: boolean;
+  }
+
 export default function Form() {
-  const [todoText, setTodoText] = useState<string>('');
-  const [textList, setTextList] = useState<string[]>([]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTodoText(e.target.value);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setTextList(prevTextList => [...prevTextList, todoText]);
-    setTodoText('');
-  };
+    const [todoText, setTodoText] = useState<string>('');
+    const [textList, setTextList] = useState<Todo[]>([]);
+  
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setTodoText(e.target.value);
+    };
+  
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      const newTodo: Todo = {
+        task: todoText,
+        isCompleted: false
+      };
+      setTextList(prevTextList => [...prevTextList, newTodo]);
+      setTodoText('');
+    };
 
   return (
     <div className="px-4 py-4 sm:p-6">
