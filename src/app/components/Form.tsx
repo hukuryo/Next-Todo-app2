@@ -21,7 +21,6 @@ export default function Form() {
             isCompleted: false
         };
         setTextList(prevTextList => [...prevTextList, newTodo]);
-        setTodoText('');
     };
 
     const handleDelete = (index: number) => {
@@ -34,21 +33,19 @@ export default function Form() {
 
     return (
         <div className="px-4 py-4 sm:p-6">
-        <div className="mb-4">
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="タスクを入力してください"
-                    value={todoText}
-                    onChange={handleInputChange}
-                />
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md" type="submit">
-                    追加する
-                </button>
-            </form>
-        </div>
-        <CompleteList textList={textList} onDelete={handleDelete}/>
+            <div className="mb-4">
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        placeholder="タスクを入力してください"
+                        value={todoText}
+                        onChange={handleInputChange}
+                    />
+                    <button className="bg-indigo-600 text-white px-4 py-2 rounded-md" type="submit">追加する</button>
+                </form>
+            </div>
+            <CompleteList textList={textList} onDelete={handleDelete}/>
         </div>
     );
 }
