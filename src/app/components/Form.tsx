@@ -25,6 +25,7 @@ export default function Form() {
             return;
         }
         setTextList(prevTextList => [...prevTextList, newTodo]);
+        setTodoText('');
     };
 
     const handleDelete = (index: number) => {
