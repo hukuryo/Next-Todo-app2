@@ -20,6 +20,10 @@ export default function Form() {
             task: todoText,
             isCompleted: false
         };
+        if(todoText == ""){
+            window.alert('テキストを入力してください！');
+            return;
+        }
         setTextList(prevTextList => [...prevTextList, newTodo]);
     };
 
