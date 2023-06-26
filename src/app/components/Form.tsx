@@ -14,6 +14,8 @@ export default function Form() {
         setTodoText(e.target.value);
     };
 
+    console.log('fff');
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const newTodo: Todo = {
