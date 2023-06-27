@@ -9,6 +9,11 @@ interface EditModalProps {
 
 export default function EditModal({ todo, onSave, onCancel }: EditModalProps) {
     const [modalOpen, setModalOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleModal = () => {
+        setIsOpen(!isOpen)
+    }
 
     return (
         <div>

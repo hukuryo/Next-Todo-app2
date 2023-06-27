@@ -16,7 +16,8 @@ export default function CompleteList({ textList, onDelete }: CompleteListProps) 
 
     const handleEdit = (index: number) => {
         setSelectedTodoIndex(index);
-        setModalOpen(true);
+        setModalOpen(!modalOpen);
+        console.log(modalOpen)
     };
 
     return (
@@ -38,13 +39,25 @@ export default function CompleteList({ textList, onDelete }: CompleteListProps) 
             </ul>
 
             {modalOpen && selectedTodoIndex !== -1 && (
-                <EditModal
-                    todo={textList[selectedTodoIndex]}
-                    onSave={(editedTodo: Todo) => {
-                        setModalOpen(true);
-                    }}
-                    onCancel={() => setModalOpen(false)}
-                />
+                // <EditModal
+                //     todo={textList[selectedTodoIndex]}
+                //     onSave={(editedTodo: Todo) => {
+                //         setModalOpen(true);
+                //     }}
+                //     onCancel={() => setModalOpen(false)}
+                // />
+                <div>
+                    {modalOpen && (
+                        <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50">
+                        <div className="bg-white p-4">
+                            <h3>Edit Todo</h3>
+                            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md" onClick={() => setModalOpen(false)}>
+                            Close
+                            </button>
+                        </div>
+                        </div>
+                    )}
+                </div>
             )}
         </div>
     );
