@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import CompleteList from "../components/CompleteLists";
-
-interface Todo {
-    task: string;
-    isCompleted: boolean;
-}
+import { Todo } from '../interfaces/Todo';
 
 export default function Form() {
     const [todoText, setTodoText] = useState<string>('');
@@ -13,8 +9,6 @@ export default function Form() {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTodoText(e.target.value);
     };
-
-    console.log('fff');
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

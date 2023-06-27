@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import EditModal from "../components/EditModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Todo } from '../interfaces/Todo';
 
-interface Todo {
-    task: string;
-    isCompleted: boolean;
-}
 
 interface CompleteListProps {
     textList: Todo[];
@@ -44,9 +41,7 @@ export default function CompleteList({ textList, onDelete }: CompleteListProps) 
                 <EditModal
                     todo={textList[selectedTodoIndex]}
                     onSave={(editedTodo: Todo) => {
-                        // ここで編集内容を保存する処理を実行する
-                        // editedTodoには編集後のTodoオブジェクトが渡される
-                        setModalOpen(false);
+                        setModalOpen(true);
                     }}
                     onCancel={() => setModalOpen(false)}
                 />
