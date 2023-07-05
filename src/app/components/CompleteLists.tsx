@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import EditModal from "../components/EditModal";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Todo } from '../interfaces/Todo';
+import { memo } from 'react';
 
 
 interface CompleteListProps {
@@ -39,13 +39,6 @@ export default function CompleteList({ textList, onDelete }: CompleteListProps) 
             </ul>
 
             {modalOpen && selectedTodoIndex !== -1 && (
-                // <EditModal
-                //     todo={textList[selectedTodoIndex]}
-                //     onSave={(editedTodo: Todo) => {
-                //         setModalOpen(true);
-                //     }}
-                //     onCancel={() => setModalOpen(false)}
-                // />
                 <div>
                     {modalOpen && (
                         <div className="fixed inset-0 flex items-center justify-center bg-gray-500">

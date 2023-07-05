@@ -1,9 +1,6 @@
 "use client";
 import Form from "../app/components/Form";
 import Title from "../app/components/Title";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-
 
 export default function Home() {
   return (
